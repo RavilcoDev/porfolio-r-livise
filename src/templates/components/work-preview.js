@@ -35,7 +35,7 @@ class WorkPreview extends HTMLElement {
         return links.map((link) => {
             return/* vue-html*/`
             <div >
-                <a :href="${link.url}"><span><i :class="${link.icon}"></i></span></a>
+                <a href="${link.url}"><span><i class="${link.icon}"></i></span></a>
             </div>
         `
         })
@@ -74,17 +74,14 @@ class WorkPreview extends HTMLElement {
             transform-origin: center left;
             z-index: 0;
           }
-          
           .work-card__container:hover {
             width: 30vw;
             height: 15vw;
           }
-          
           .work-card__container > img {
             width: 100%;
             object-fit: cover;
           }
-          
           .work-card__detail {
             background: linear-gradient(
               to top,
@@ -94,7 +91,7 @@ class WorkPreview extends HTMLElement {
             font-size: 16px;
             color: var(--color-font-light);
             transition: 450ms;
-            padding: 10px 10px;
+            padding: 15px 20px;
             position: absolute;
             opacity: 0;
             top: 0;
@@ -105,25 +102,20 @@ class WorkPreview extends HTMLElement {
             justify-content: flex-end;
             flex-direction: column;
           }
-          
           .work-card__detail:hover {
             opacity: 1;
           }
-          
           .work-card__title {
             margin-bottom: 0px;
           }
-          
           .work-card__description {
             margin-top: 2px;
             margin-bottom: 10px;
           }
-          
           .work-card__buttons {
             display: flex;
             flex-direction: row;
           }
-          
           .work-card__buttons a {
             color: var(--color-font-light);
             font-size: 2em;
@@ -131,25 +123,20 @@ class WorkPreview extends HTMLElement {
           }
 
           @media screen and (max-width: 1024px) {
-          
             .work-card__container {
               width: 36vw;
               height: 18vw;
             }
-          
             .work-card__container:hover {
               width: 45vw;
               height: 22.5vw;
             }
           }
           @media screen and (max-width: 768px) {
-            
-          
             .work-card__container {
               width: 76vw;
               height: 38vw;
             }
-          
             .work-card__container:hover {
               width: 90vw;
               height: 45vw;
