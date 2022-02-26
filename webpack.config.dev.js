@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const Dotenv= require('dotenv-webpack')
+const { SourceMapDevToolPlugin } = require("webpack");
 
 module.exports = {
     entry: './src/index.js',
@@ -35,7 +36,12 @@ module.exports = {
                 generator: {
                     filename : 'assets/fonts/[name][contenthash][ext][query]',
                   }
-            }
+            },
+            {
+                test: /\.js$/,
+                enforce: 'pre',
+                use: ['source-map-loader'],
+              },
         ],
     },
     plugins: [
@@ -47,7 +53,10 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename:'assets/[name].[contenthash].css'
         }),
-        new Dotenv()
+        new Dotenv(),
+        new SourceMapDevToolPlugin({
+            filename: "[file].map"
+          }),
     ],
     devServer: {
         static: path.join(__dirname, 'dist'),
