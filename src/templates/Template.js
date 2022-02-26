@@ -2,7 +2,7 @@ import NavbarOption from "./components/navbar-option.js"
 import WorkPreview from "./components/work-preview.js"
 
 
-const Template = async () => {
+const Template = () => {
     customElements.define('navbar-option', NavbarOption);
     customElements.define('work-preview', WorkPreview);
     const view = /* vue-html*/`
@@ -56,12 +56,12 @@ const Template = async () => {
   </section>
   <section class="contact" id="contact">
     <div class="contact__container">
-      <form class="contact__container--form">
+      <div class="contact__container--form">
         <h3>Enviame tu correo para contactarnos.</h3>
         <br />
         <label for="email">Email:</label>
         <div>
-          <input type="email" id="email"required />
+          <input type="email" id="email" require />
         </div>
         <br />
         <label for="message">Mensaje:</label>
@@ -69,12 +69,12 @@ const Template = async () => {
           <textarea
             id="message"
             rows="6"
-            required
+            require
           ></textarea>
         </div>
         <br />
-        <button type="sumbit" class="contact__button">Enviar</button>
-      </form>
+        <button id="buttonContact" type="sumbit" class="contact__button">Enviar</button>
+      </div>
       <div class="contact__container--contact">
         <a
           href="https://www.linkedin.com/in/rafael-livise-larico-97b323151/"

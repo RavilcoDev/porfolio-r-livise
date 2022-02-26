@@ -4,21 +4,26 @@ import Contact from '../firebase/contacts/contacts.js'
 
 import getToast from './getToast.js'
 
-async function  createContact() {
-    await setTimeout(1000)
+async function createContact () {
 
+  const emailNode = document.querySelector("#email")
+  const messageNode = document.querySelector("#message")
+  const buttonNode = document.querySelector("#buttonContact")
+  const Toast = getToast()
 
-    const email=document.querySelector("#email").value
-    const message=document.querySelector("#message").value
-    const Toast = getToast()
-    if (!email || !message){
+  try {
+
+    const email = emailNode.value
+    const message = messageNode.value
+
+    if (!email || !message) {
       await Toast.fire({
         icon: 'warning',
         title: 'Falta agragar email o mensaje.'
       })
       return
     }
-    if(!email.includes("@") ){
+    if (!email.includes("@")) {
       await Toast.fire({
         icon: 'warning',
         title: 'Ingresa un email correcto (@).'
@@ -29,21 +34,32 @@ async function  createContact() {
       email,
       message,
     };
-    const contactFirebase = new Contact();
-  
-    contactFirebase
-      .createContacts(contactSend)
-      .then(() => {
-        alert("enviado200")
-  
-        Toast.fire({
-          icon: 'success',
-          title: 'Mensaje enviado'
-        })
-      })
-      .catch((err) => {
-        console.error(new Error(err));
-      });
-  }
+    buttonNode.textContent = "Enviando ..."
 
-  export default createContact
+    emailNode.setAttribute("disabled", true)
+    messageNode.setAttribute("disabled", true)
+
+    const contactFirebase = new Contact();
+
+    await contactFirebase
+      .createContacts(contactSend)
+
+    
+
+  } catch (err) {
+    console.error(new Error(err));
+  } finally {
+    emailNode.removeAttribute("disabled")
+    messageNode.removeAttribute("disabled")
+    emailNode.value = ""
+    messageNode.value = ""
+    buttonNode.textContent = "Enviar"
+
+    await Toast.fire({
+      icon: 'success',
+      title: 'Mensaje enviado'
+    })
+  }
+}
+
+export default createContact

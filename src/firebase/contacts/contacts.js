@@ -1,31 +1,28 @@
 import appFirebase from '../general.js';
 import {
   getFirestore,
-  setDoc,
-  doc,
+  addDoc,
+  collection,
   Timestamp,
-  setLogLevel
-} from "firebase/firestore";
+  setLogLevel,
+} from 'firebase/firestore';
 
 class Contacts {
   constructor() {
     this.db = getFirestore(appFirebase);
   }
   async createContacts({ email, message }) {
-     try {
-  // setLogLevel('debug')
+    try {
+      // setLogLevel('debug');
 
-
-    await setDoc(doc(this.db, 'contacts',"adsasdd"), {
+      await addDoc(collection(this.db, 'contacts'), {
         email,
         message,
         date: Timestamp.fromDate(new Date()),
-      })
-
-     } catch (error) {
-       console.error(new Error(error))
-     }
-      
+      });
+    } catch (error) {
+      console.error(new Error(error));
+    }
   }
 }
 
