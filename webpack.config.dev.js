@@ -1,8 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const Dotenv= require('dotenv-webpack')
+const Dotenv = require('dotenv-webpack')
 const { SourceMapDevToolPlugin } = require("webpack");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
 
 module.exports = {
     entry: './src/index.js',
@@ -11,8 +12,9 @@ module.exports = {
         filename: '[name].[contenthash].js',
         assetModuleFilename: 'assets/[hash][ext][query]'
     },
-    mode:'development',
+    mode: 'development',
     // watch:true,
+    devtool: 'source-map',
     resolve: {
         extensions: ['.js'],
     },
@@ -34,14 +36,14 @@ module.exports = {
                 test: /\.(woff|eot|ttf|svg)(\?v=\w+)?$/,
                 type: "asset/resource",
                 generator: {
-                    filename : 'assets/fonts/[name][contenthash][ext][query]',
-                  }
+                    filename: 'assets/fonts/[name][contenthash][ext][query]',
+                }
             },
             {
                 test: /\.js$/,
                 enforce: 'pre',
                 use: ['source-map-loader'],
-              },
+            },
         ],
     },
     plugins: [
@@ -51,17 +53,18 @@ module.exports = {
             filename: './index.html',
         }),
         new MiniCssExtractPlugin({
-            filename:'assets/[name].[contenthash].css'
+            filename: 'assets/[name].[contenthash].css'
         }),
         new Dotenv(),
         new SourceMapDevToolPlugin({
             filename: "[file].map"
-          }),
+        }),
+        new BundleAnalyzerPlugin(),
     ],
     devServer: {
         static: path.join(__dirname, 'dist'),
         compress: true,
         historyApiFallback: true,
         port: 3006,
-      },
+    },
 };
