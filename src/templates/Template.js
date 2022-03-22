@@ -1,11 +1,10 @@
-import NavbarOption from "./components/navbar-option.js"
-import WorkPreview from "./components/work-preview.js"
-
+import NavbarOption from './components/navbar-option.js';
+import WorkPreview from './components/work-preview.js';
 
 const Template = () => {
-    customElements.define('navbar-option', NavbarOption);
-    customElements.define('work-preview', WorkPreview);
-    const view = /* vue-html*/`
+  customElements.define('navbar-option', NavbarOption);
+  customElements.define('work-preview', WorkPreview);
+  const view = /* vue-html*/ `
   <navbar-option items-option="3" size-change="850px">
     <span slot="logo"><i class="icon-menu"></i></span>
     <span slot="title">
@@ -25,9 +24,17 @@ const Template = () => {
     </li>
   </navbar-option>
   <section class="info" id="info">
+    
     <div class="info__container">
+      <div class="info__container--image">
+        <img 
+          class="info__image" 
+          src="https://rafaelcnd.azureedge.net/images/porfolio_image.jpg" 
+          alt="Rafel Livise Larico"
+          >
+      </div>
       <div class="info__container--text">
-        <h2 class="info__title">Hola</h2>
+        <h2 class="info__title">Derrollador Web Fullstack</h2>
         <div class="info__context">
           <p>
             Hola soy Rafael Livise, programador con mas de 3 años de
@@ -103,7 +110,7 @@ const Template = () => {
     </div>
   </footer>
     `;
-    return view;
+  return view;
 };
 
 export default Template;
