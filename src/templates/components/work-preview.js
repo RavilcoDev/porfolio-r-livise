@@ -45,16 +45,18 @@ class WorkPreview extends HTMLElement {
     getTemplate () {
         const template = document.createElement('template');
         template.innerHTML = /* vue-html */`
-    <div class="work-card__container">
-    <img src="${this.imageSrc}" alt="">
-    <div class="work-card__detail">
-        <h3 class="work-card__title">${this.title}</h3>
-        <p class="work-card__description">${this.description}</p>
-        <div class="work-card__buttons" >
+      <div class="work-card__container">
+        <img src="${this.imageSrc}" alt="${this.title}">
+        <div class="work-card__detail">
+          <a href=${JSON.parse(this.hiperlinks)[1].url || '/'} _blank>
+            <h3 class="work-card__title">${this.title}</h3>
+            <p class="work-card__description">${this.description}</p>
+          </a>
+          <div class="work-card__buttons" >
             ${this.getHiperlinkTemplate(this.hiperlinks)}
+          </div>
         </div>
-    </div>
-    </div>
+      </div>
     <style>${this.getStyle()}</style>`
         return template
     }
@@ -69,7 +71,6 @@ class WorkPreview extends HTMLElement {
             height: calc(25vw / 2);
             background-color: #fff;
             overflow: hidden;
-            cursor: pointer;
             transition: 400ms;
             transform-origin: center left;
             z-index: 0;
@@ -104,6 +105,13 @@ class WorkPreview extends HTMLElement {
           }
           .work-card__detail:hover {
             opacity: 1;
+          }
+          .work-card__detail a {
+            color: var(--color-font-light);
+          }
+          .work-card__detail a:hover {
+            color: var(--color-secundario);
+            cursor: pointer;
           }
           .work-card__title {
             margin-bottom: 0px;

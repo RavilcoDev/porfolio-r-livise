@@ -77,9 +77,31 @@ navbar-option {
   margin: 5vh 10%;
 }
 
+.info__context{
+  margin-top: 2vh;
+}
+
 .info__title {
   font-size: 2em;
   margin-bottom: 0px;
+}
+.info__context button{
+  border: none;
+  background-color: var(--color-principal);
+  color: var(--color-font-light);
+  padding: 0 1em ;
+  font-size: 20px;
+  height:2em;
+  border-radius: 1.5em;
+  cursor: pointer;
+  -webkit-box-shadow: 3px 3px 26px -8px rgba(0,0,0,0.52);
+  -moz-box-shadow: 3px 3px 26px -8px rgba(0,0,0,0.52);
+  box-shadow: 3px 3px 26px -8px rgba(0,0,0,0.52);
+}
+.info__context button:hover{
+  -webkit-box-shadow: inset 3px 11px 26px -8px rgba(0,0,0,0.52);
+-moz-box-shadow: inset 3px 11px 26px -8px rgba(0,0,0,0.52);
+box-shadow: inset 3px 11px 26px -8px rgba(0,0,0,0.52);
 }
 
 .info__context {

@@ -8,7 +8,7 @@ const Template = () => {
   <navbar-option items-option="3" size-change="850px">
     <span slot="logo"><i class="icon-menu"></i></span>
     <span slot="title">
-      <p>R-Livise</p>
+      <p>RavilcoDev</p>
     </span>
     <li tabindex="0" slot="option-1" data-redirect="info">
       <span class="nav-option"><i class="icon-info"></i></span
@@ -36,8 +36,11 @@ const Template = () => {
       <div class="info__container--text">
         <h2 class="info__title">Derrollador Web Fullstack</h2>
         <div class="info__context">
+          <a href="https://react-eth-challenge-pi.vercel.app">
+            <button>Curriculum</button>
+          <a>
           <p>
-            Hola soy Rafael Livise, programador con mas de 3 años de
+            Hola soy <b>Rafael Livise Larico</b>, programador con mas de 3 años de
             experiencia en tegnologias web, estoy en constante aprendizaje
             mediante documentacion y cursos en linea.
           </p>
@@ -90,13 +93,13 @@ const Template = () => {
           ><span><i class="icon-linkedin"></i></span
         ></a>
         <a
-          href="https://twitter.com/rflivise"
+          href="https://twitter.com/RavilcoDev"
           class="social-link"
           target="_blank"
           ><span><i class="icon-twitter"></i></span
         ></a>
         <a
-          href="https://github.com/R-Livise"
+          href="https://github.com/RavilcoDev"
           class="social-link"
           target="_blank"
           ><span><i class="icon-github"></i></span
