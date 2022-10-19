@@ -40,8 +40,8 @@ const Template = () => {
             <button>Curriculum</button>
           <a>
           <p>
-            Hola soy <b>Rafael Livise Larico</b>, programador con mas de 3 años de
-            experiencia en tegnologias web, estoy en constante aprendizaje
+            Hola soy <b>Rafael Livise Larico</b>, programador con más de 3 años de
+            experiencia en tecnologias web, estoy en constante aprendizaje
             mediante documentacion y cursos en linea.
           </p>
           <p>
